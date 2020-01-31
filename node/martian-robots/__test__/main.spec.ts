@@ -55,3 +55,10 @@ describe('The robot', () => {
         expect(robot);
     });
 });
+
+describe('The grid service', () => {
+    it('should be created with an initial grid', () => {
+        const gridService = new GridService(new Grid(new Coordinate(0, 0)));
+        expect(gridService);
+    });
+});
