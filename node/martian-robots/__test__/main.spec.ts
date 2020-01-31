@@ -73,6 +73,15 @@ describe('The grid service', () => {
             instructions,
         );
     }
+    function getRobotOnOneOneFacingNorth(instructions: Instruction[]): Robot {
+        return new Robot(
+            new Position(
+                new Coordinate(1, 1),
+                new Orientation(Orientation.NORTH),
+            ),
+            instructions,
+        );
+    }
 
     it('should play a robot with one instruction', () => {
         const robot = getRobotOnZeroZeroFacingNorth([
@@ -142,6 +151,25 @@ describe('The grid service', () => {
         const expectedPosition = new Position(
             new Coordinate(1, 0),
             new Orientation(Orientation.EAST),
+        );
+        expect(finalPosition).toEqual(expectedPosition);
+    });
+
+    it('should play a robot that moves to the SOUTH', () => {
+        const robot = getRobotOnOneOneFacingNorth([
+            new Instruction(Instruction.RIGHT),
+            new Instruction(Instruction.RIGHT),
+            new Instruction(Instruction.FORWARD),
+        ]);
+        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
+        const gridService = new GridService(grid);
+
+        const path = gridService.play(robot);
+        const finalPosition = path[path.length - 1];
+
+        const expectedPosition = new Position(
+            new Coordinate(1, 0),
+            new Orientation(Orientation.SOUTH),
         );
         expect(finalPosition).toEqual(expectedPosition);
     });
