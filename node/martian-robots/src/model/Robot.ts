@@ -1,4 +1,5 @@
-import { Instruction, Position } from '../../__test__/main.spec';
+import { Position } from './Position';
+import { Instruction } from './Instruction';
 
 export class Robot {
     readonly initialPosition: Position;

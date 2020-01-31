@@ -4,6 +4,9 @@ import { ConsoleOutput } from '../src/infrastructure/ConsoleOutput';
 import { GridService } from '../src/service/Grid';
 import { Coordinate } from '../src/model/Coordinate';
 import { Robot } from '../src/model/Robot';
+import { Position } from '../src/model/Position';
+import { Orientation } from '../src/model/Orientation';
+import { Instruction } from '../src/model/Instruction';
 
 describe('Complete test', () => {
     it('should work', () => {
@@ -40,39 +43,14 @@ describe('The grid', () => {
     });
 });
 
-export class Instruction {
-    static readonly FORWARD = 'F';
-    readonly instruction: string;
-
-    constructor(instruction: string) {
-        this.instruction = instruction;
-    }
-}
-
-export class Orientation {
-    static readonly NORTH = 'N';
-    readonly orientation: string;
-
-    constructor(orientation: string) {
-        this.orientation = orientation;
-    }
-}
-
-export class Position {
-    readonly coordinate: Coordinate;
-    readonly orientation: Orientation;
-
-    constructor(coordinate: Coordinate, orientation: Orientation) {
-        this.coordinate = coordinate;
-        this.orientation = orientation;
-    }
-}
-
 describe('The robot', () => {
     it('should be created with initial position and instructions', () => {
         const instructions = [new Instruction(Instruction.FORWARD)];
         const coordinate = new Coordinate(0, 0);
-        const initialPosition = new Position(coordinate, new Orientation(Orientation.NORTH));
+        const initialPosition = new Position(
+            coordinate,
+            new Orientation(Orientation.NORTH),
+        );
         const robot = new Robot(initialPosition, instructions);
         expect(robot);
     });
