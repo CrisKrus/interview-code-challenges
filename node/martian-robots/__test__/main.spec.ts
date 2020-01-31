@@ -64,7 +64,7 @@ describe('The grid service', () => {
         expect(gridService);
     });
 
-    it('should play a robot', () => {
+    it('should play a robot with one instruction', () => {
         const robot = new Robot(
             new Position(
                 new Coordinate(0, 0),
