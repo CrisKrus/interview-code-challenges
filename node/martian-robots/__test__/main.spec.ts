@@ -1,5 +1,5 @@
 import { MockInput } from '../src/infrastructure/MockInput';
-import { Grid } from '../src/model/Grid';
+import { Grid, MAX_X, MAX_Y } from '../src/model/Grid';
 import { ConsoleOutput } from '../src/infrastructure/ConsoleOutput';
 import { GridService } from '../src/service/Grid';
 import { Coordinates } from '../src/model/Coordinates';
@@ -26,8 +26,8 @@ describe('Complete test', () => {
 
 describe('The grid', () => {
     it('should be created under the maximum coordinates', () => {
-        const coordinates = new Coordinates(0, 0);
+        const coordinates = new Coordinates(MAX_X - 1, MAX_Y - 1);
         const grid = new Grid(coordinates);
-        expect(grid).not.toThrow(Error);
+        expect(grid);
     });
 });
