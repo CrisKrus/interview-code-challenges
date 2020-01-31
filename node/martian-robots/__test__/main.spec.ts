@@ -64,14 +64,20 @@ describe('The grid service', () => {
         expect(gridService);
     });
 
-    it('should play a robot with one instruction', () => {
-        const robot = new Robot(
+    function getRobotOnZeroZeroFacingNorth(instructions: Instruction[]): Robot {
+        return new Robot(
             new Position(
                 new Coordinate(0, 0),
                 new Orientation(Orientation.NORTH),
             ),
-            [new Instruction(Instruction.FORWARD)],
+            instructions,
         );
+    }
+
+    it('should play a robot with one instruction', () => {
+        const robot = getRobotOnZeroZeroFacingNorth([
+            new Instruction(Instruction.FORWARD),
+        ]);
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
         const output = gridService.play(robot);
@@ -79,16 +85,10 @@ describe('The grid service', () => {
     });
 
     it('should play a robot with multiple instructions', () => {
-        const robot = new Robot(
-            new Position(
-                new Coordinate(0, 0),
-                new Orientation(Orientation.NORTH),
-            ),
-            [
-                new Instruction(Instruction.FORWARD),
-                new Instruction(Instruction.FORWARD),
-            ],
-        );
+        const robot = getRobotOnZeroZeroFacingNorth([
+            new Instruction(Instruction.FORWARD),
+            new Instruction(Instruction.FORWARD),
+        ]);
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
         const output = gridService.play(robot);
