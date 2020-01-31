@@ -42,6 +42,14 @@ export class GridService {
                     ),
                     new Orientation(position.orientation.orientation),
                 );
+            case Orientation.EAST:
+                return new Position(
+                    new Coordinate(
+                        position.coordinate.x + 1,
+                        position.coordinate.y,
+                    ),
+                    new Orientation(position.orientation.orientation),
+                );
             default:
                 return new Position(
                     new Coordinate(
