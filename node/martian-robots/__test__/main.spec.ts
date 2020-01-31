@@ -58,7 +58,9 @@ describe('The robot', () => {
 
 describe('The grid service', () => {
     it('should be created with an initial grid', () => {
-        const gridService = new GridService(new Grid(new Coordinate(0, 0)));
+        const coordinate = new Coordinate(0, 0);
+        const grid = new Grid(coordinate);
+        const gridService = new GridService(grid);
         expect(gridService);
     });
 });

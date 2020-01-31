@@ -2,8 +2,10 @@ import { Grid } from '../model/Grid';
 import { Robot } from '../model/Robot';
 
 export class GridService {
+    private grid: Grid;
+
     constructor(grid: Grid) {
-        throw 'Not implement yet';
+        this.grid = grid;
     }
 
     play(robot: Robot) {
