@@ -1,17 +1,17 @@
-import { Coordinates } from './Coordinates';
+import { Coordinate } from './Coordinate';
 
 export const MAX_X = 50;
 export const MAX_Y = 50;
 
 export class Grid {
-    readonly topRightCoordinates: Coordinates;
+    readonly topRightCoordinates: Coordinate;
 
-    constructor(coordinates: Coordinates) {
+    constructor(coordinates: Coordinate) {
         this.checkCoordinates(coordinates);
         this.topRightCoordinates = coordinates;
     }
 
-    private checkCoordinates(coordinates: Coordinates) {
+    private checkCoordinates(coordinates: Coordinate) {
         if (coordinates.x > MAX_X) {
             throw new Error('Coordinates exceed maximum on X');
         }

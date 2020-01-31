@@ -1,4 +1,4 @@
-export class Coordinates {
+export class Coordinate {
     readonly x: number;
     readonly y: number;
 

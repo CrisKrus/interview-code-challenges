@@ -2,7 +2,7 @@ import { MockInput } from '../src/infrastructure/MockInput';
 import { Grid, MAX_X, MAX_Y } from '../src/model/Grid';
 import { ConsoleOutput } from '../src/infrastructure/ConsoleOutput';
 import { GridService } from '../src/service/Grid';
-import { Coordinates } from '../src/model/Coordinates';
+import { Coordinate } from '../src/model/Coordinate';
 import { Robot } from '../src/model/Robot';
 
 describe('Complete test', () => {
@@ -27,13 +27,13 @@ describe('Complete test', () => {
 
 describe('The grid', () => {
     it('should be created under the maximum coordinates', () => {
-        const coordinates = new Coordinates(MAX_X - 1, MAX_Y - 1);
+        const coordinates = new Coordinate(MAX_X - 1, MAX_Y - 1);
         const grid = new Grid(coordinates);
         expect(grid);
     });
 
     it('should check if is created over the maximum coordinates', () => {
-        const coordinates = new Coordinates(MAX_X + 1, MAX_Y + 1);
+        const coordinates = new Coordinate(MAX_X + 1, MAX_Y + 1);
         expect(() => {
             new Grid(coordinates);
         }).toThrowError('Coordinates exceed maximum on X');
@@ -59,10 +59,10 @@ export class Orientation {
 }
 
 export class Position {
-    readonly coordinate: Coordinates;
+    readonly coordinate: Coordinate;
     readonly orientation: Orientation;
 
-    constructor(coordinate: Coordinates, orientation: Orientation) {
+    constructor(coordinate: Coordinate, orientation: Orientation) {
         this.coordinate = coordinate;
         this.orientation = orientation;
     }
@@ -71,7 +71,7 @@ export class Position {
 describe('The robot', () => {
     it('should be created with initial position and instructions', () => {
         const instructions = [new Instruction(Instruction.FORWARD)];
-        const coordinate = new Coordinates(0, 0);
+        const coordinate = new Coordinate(0, 0);
         const initialPosition = new Position(coordinate, new Orientation(Orientation.NORTH));
         const robot = new Robot(initialPosition, instructions);
         expect(robot);
