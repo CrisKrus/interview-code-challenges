@@ -63,4 +63,18 @@ describe('The grid service', () => {
         const gridService = new GridService(grid);
         expect(gridService);
     });
+
+    it('should play a robot', () => {
+        const robot = new Robot(
+            new Position(
+                new Coordinate(0, 0),
+                new Orientation(Orientation.NORTH),
+            ),
+            [new Instruction(Instruction.FORWARD)],
+        );
+        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
+        const gridService = new GridService(grid);
+        const output = gridService.play(robot);
+        expect(output).toEqual('1 0 N');
+    });
 });
