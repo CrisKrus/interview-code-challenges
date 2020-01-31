@@ -75,7 +75,7 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
         const output = gridService.play(robot);
-        expect(output).toEqual('1 0 N');
+        expect(output).toEqual('0 1 N');
     });
 
     it('should play a robot with multiple instructions', () => {
