@@ -3,6 +3,7 @@ import { Grid, MAX_X, MAX_Y } from '../src/model/Grid';
 import { ConsoleOutput } from '../src/infrastructure/ConsoleOutput';
 import { GridService } from '../src/service/Grid';
 import { Coordinates } from '../src/model/Coordinates';
+import { Robot } from '../src/model/Robot';
 
 describe('Complete test', () => {
     it('should work', () => {
@@ -36,5 +37,33 @@ describe('The grid', () => {
         expect(() => {
             new Grid(coordinates);
         }).toThrowError('Coordinates exceed maximum on X');
+    });
+});
+
+export class Instruction {
+    constructor(instruction: string) {
+        throw 'Not implemented';
+    }
+}
+
+export class Orientation {
+    constructor() {
+        throw 'Not implemented';
+    }
+}
+
+export class Position {
+    constructor(coordinates: Coordinates, orientation: Orientation) {
+        throw 'Not implemented';
+    }
+}
+
+describe('The robot', () => {
+    it('should be created with initial position and instructions', () => {
+        const instructions = [new Instruction('')];
+        const coordinates = new Coordinates(0, 0);
+        const initialPosition = new Position(coordinates, new Orientation());
+        const robot = new Robot(initialPosition, instructions);
+        expect(robot);
     });
 });
