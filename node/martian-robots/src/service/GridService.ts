@@ -1,6 +1,6 @@
 import { Grid } from '../model/Grid';
 import { Robot } from '../model/Robot';
-import { Position} from "../model/Position";
+import { Position } from '../model/Position';
 
 export class GridService {
     private grid: Grid;
