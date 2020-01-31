@@ -1,5 +1,5 @@
 export class Coordinates {
-    constructor() {
+    constructor(x: number, y: number) {
         throw 'Not implemented yet';
     }
 }
