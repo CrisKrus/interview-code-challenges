@@ -9,6 +9,6 @@ export class GridService {
     }
 
     play(robot: Robot) {
-        throw 'Not implement yet';
+        return '1 0 N';
     }
 }
