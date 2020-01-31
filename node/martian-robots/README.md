@@ -1,10 +1,18 @@
-# TypeScript Boilerplate for Katas
+# Martian Robots
 
-You can use it for Coding-Dojos, Katas or **reference** to build a new project.
+# Develop
 
-This boilerplate include:
+## Run tests
 
-- 💬 TypeScript 3.6
-- 📙 Babel 7
-- ✅ Jest 24
-- 💅 Prettier & TSLint
+```
+cd node/martian-robots/
+npm run-script test
+```
+
+## Run tests watch
+
+```
+cd node/martian-robots/
+npm run-script test:watch
+```
+
