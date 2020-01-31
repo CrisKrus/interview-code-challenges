@@ -12,24 +12,28 @@ export class GridService {
         this.grid = grid;
     }
 
-    play(robot: Robot): Position {
+    play(robot: Robot): Position[] {
         let position = robot.initialPosition;
+        const path: Position[] = [];
         robot.instructions.forEach(instruction => {
             switch (instruction.instruction) {
                 case Instruction.FORWARD:
                     position = this.goForward(position);
+                    path.push(position);
                     break;
                 case Instruction.RIGHT:
                     position = this.rotateRight(position);
+                    path.push(position);
                     break;
                 case Instruction.LEFT:
                     position = this.rotateLeft(position);
+                    path.push(position);
                     break;
                 default:
                     break;
             }
         });
-        return position;
+        return path;
     }
 
     private goForward(position: Position): Position {

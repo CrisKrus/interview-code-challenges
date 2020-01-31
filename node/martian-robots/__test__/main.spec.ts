@@ -81,13 +81,14 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const position = gridService.play(robot);
+        const path = gridService.play(robot);
+        const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
             new Coordinate(0, 1),
             new Orientation(Orientation.NORTH),
         );
-        expect(position).toEqual(expectedPosition);
+        expect(finalPosition).toEqual(expectedPosition);
     });
 
     it('should play a robot with multiple instructions', () => {
@@ -98,7 +99,8 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const finalPosition = gridService.play(robot);
+        const path = gridService.play(robot);
+        const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
             new Coordinate(0, 2),
@@ -116,7 +118,8 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const finalPosition = gridService.play(robot);
+        const path = gridService.play(robot);
+        const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
             new Coordinate(0, 0),
@@ -133,7 +136,8 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const finalPosition = gridService.play(robot);
+        const path = gridService.play(robot);
+        const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
             new Coordinate(1, 0),
