@@ -9,6 +9,10 @@ export class GridService {
     }
 
     play(robot: Robot) {
-        return '1 0 N';
+        let position = robot.initialPosition;
+        robot.instructions.forEach(instruction => {
+            position = position.move(instruction);
+        });
+        return `${position.coordinate.x} ${position.coordinate.y} ${position.orientation.orientation}`;
     }
 }
