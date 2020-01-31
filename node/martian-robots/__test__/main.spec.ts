@@ -41,28 +41,38 @@ describe('The grid', () => {
 });
 
 export class Instruction {
+    static readonly FORWARD = 'F';
+    readonly instruction: string;
+
     constructor(instruction: string) {
-        throw 'Not implemented';
+        this.instruction = instruction;
     }
 }
 
 export class Orientation {
-    constructor() {
-        throw 'Not implemented';
+    static readonly NORTH = 'N';
+    readonly orientation: string;
+
+    constructor(orientation: string) {
+        this.orientation = orientation;
     }
 }
 
 export class Position {
-    constructor(coordinates: Coordinates, orientation: Orientation) {
-        throw 'Not implemented';
+    readonly coordinate: Coordinates;
+    readonly orientation: Orientation;
+
+    constructor(coordinate: Coordinates, orientation: Orientation) {
+        this.coordinate = coordinate;
+        this.orientation = orientation;
     }
 }
 
 describe('The robot', () => {
     it('should be created with initial position and instructions', () => {
-        const instructions = [new Instruction('')];
-        const coordinates = new Coordinates(0, 0);
-        const initialPosition = new Position(coordinates, new Orientation());
+        const instructions = [new Instruction(Instruction.FORWARD)];
+        const coordinate = new Coordinates(0, 0);
+        const initialPosition = new Position(coordinate, new Orientation(Orientation.NORTH));
         const robot = new Robot(initialPosition, instructions);
         expect(robot);
     });
