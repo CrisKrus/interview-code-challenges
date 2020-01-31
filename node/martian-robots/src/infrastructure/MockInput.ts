@@ -1,4 +1,5 @@
 import { Robot } from '../model/Robot';
+import { Coordinate } from '../model/Coordinate';
 
 export class MockInput {
     constructor() {
@@ -9,7 +10,7 @@ export class MockInput {
         throw 'Not implemented yet';
     }
 
-    getMaximumCoordinates(): Coordinates {
+    getMaximumCoordinates(): Coordinate {
         throw 'Not implemented yet';
     }
 
