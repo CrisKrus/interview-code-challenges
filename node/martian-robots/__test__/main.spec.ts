@@ -33,7 +33,8 @@ describe('The grid', () => {
 
     it('should check if is created over the maximum coordinates', () => {
         const coordinates = new Coordinates(MAX_X + 1, MAX_Y + 1);
-        const grid = new Grid(coordinates);
-        expect(grid).toThrowError(Error);
+        expect(() => {
+            new Grid(coordinates);
+        }).toThrowError('Coordinates exceed maximum on X');
     });
 });
