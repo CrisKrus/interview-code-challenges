@@ -124,4 +124,21 @@ describe('The grid service', () => {
         );
         expect(finalPosition).toEqual(expectedPosition);
     });
+
+    it('should play a robot that moves to the EAST', () => {
+        const robot = getRobotOnZeroZeroFacingNorth([
+            new Instruction(Instruction.RIGHT),
+            new Instruction(Instruction.FORWARD),
+        ]);
+        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
+        const gridService = new GridService(grid);
+
+        const finalPosition = gridService.play(robot);
+
+        const expectedPosition = new Position(
+            new Coordinate(1, 0),
+            new Orientation(Orientation.EAST),
+        );
+        expect(finalPosition).toEqual(expectedPosition);
+    });
 });
