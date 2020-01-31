@@ -1,7 +1,7 @@
 import { MockInput } from '../src/infrastructure/MockInput';
 import { Grid, MAX_X, MAX_Y } from '../src/model/Grid';
 import { ConsoleOutput } from '../src/infrastructure/ConsoleOutput';
-import { GridService } from '../src/service/Grid';
+import { GridService } from '../src/service/GridService';
 import { Coordinate } from '../src/model/Coordinate';
 import { Robot } from '../src/model/Robot';
 import { Position } from '../src/model/Position';
