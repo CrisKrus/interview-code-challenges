@@ -1,9 +1,9 @@
-export class ConsoleOutput {
-    constructor() {
-        throw 'Not implemented yet';
-    }
+import { Position } from '../model/Position';
 
-    print(robotPath: any) {
-        throw 'Not implemented yet';
+export class ConsoleOutput {
+    constructor() {}
+
+    print(position: Position) {
+        console.log(`${position.coordinate.x} ${position.coordinate.y} ${position.orientation.orientation} `);
     }
 }
