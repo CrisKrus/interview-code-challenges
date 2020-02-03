@@ -22,8 +22,8 @@ describe('Complete test', () => {
         const robots = input.getRobots();
         const gridService = new GridService(grid);
         robots.forEach(robot => {
-            const robotPath = gridService.launch(robot);
-            new ConsoleOutput().print(robotPath);
+            const finalPosition = gridService.launch(robot);
+            new ConsoleOutput().print(finalPosition);
         });
     });
 });

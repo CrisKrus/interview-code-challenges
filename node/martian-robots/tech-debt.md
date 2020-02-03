@@ -7,3 +7,4 @@
 - create our Instruction types  or enums 
 - create our Orientation types or enums 
 - create our own Errors
+- refactor file input, is not clear
