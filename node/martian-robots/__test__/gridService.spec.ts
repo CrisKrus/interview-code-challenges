@@ -1,5 +1,4 @@
 import { Coordinate } from '../src/model/Coordinate';
-import { Grid, MAX_X, MAX_Y } from '../src/model/Grid';
 import { GridService } from '../src/service/GridService';
 import { Instruction } from '../src/model/Instruction';
 import { Robot } from '../src/model/Robot';
@@ -8,9 +7,7 @@ import { Orientation } from '../src/model/Orientation';
 
 describe('The grid service', () => {
     it('should be created with an initial grid', () => {
-        const coordinate = new Coordinate(0, 0);
-        const grid = new Grid(coordinate);
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
         expect(gridService);
     });
 
@@ -37,8 +34,7 @@ describe('The grid service', () => {
         const robot = getRobotOnZeroZeroFacingNorth([
             new Instruction(Instruction.FORWARD),
         ]);
-        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
 
         const finalPosition = gridService.launch(robot);
 
@@ -54,8 +50,7 @@ describe('The grid service', () => {
             new Instruction(Instruction.FORWARD),
             new Instruction(Instruction.FORWARD),
         ]);
-        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
 
         const finalPosition = gridService.launch(robot);
 
@@ -74,8 +69,7 @@ describe('The grid service', () => {
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.LEFT),
         ]);
-        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
 
         const finalPosition = gridService.launch(robot);
 
@@ -91,8 +85,7 @@ describe('The grid service', () => {
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.FORWARD),
         ]);
-        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
 
         const finalPosition = gridService.launch(robot);
 
@@ -109,8 +102,7 @@ describe('The grid service', () => {
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.FORWARD),
         ]);
-        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
 
         const finalPosition = gridService.launch(robot);
 
@@ -128,8 +120,7 @@ describe('The grid service', () => {
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.FORWARD),
         ]);
-        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
 
         const finalPosition = gridService.launch(robot);
 
@@ -148,8 +139,7 @@ describe('The grid service', () => {
             new Instruction(Instruction.LEFT),
             new Instruction(Instruction.LEFT),
         ]);
-        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
-        const gridService = new GridService(grid);
+        const gridService = new GridService();
 
         const finalPosition = gridService.launch(robot);
 
