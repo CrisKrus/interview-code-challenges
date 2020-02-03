@@ -7,17 +7,21 @@ import { Instruction } from '../model/Instruction';
 
 export class FileInput {
     private maximumCoordinates: Coordinate;
-    private robots: Robot[];
+    private readonly robots: Robot[];
 
     constructor() {
         this.robots = [];
+        this.maximumCoordinates = new Coordinate(0, 0);
     }
 
-    loadData(path: string) {
+    loadData(path: string): void {
         const file = fs.readFileSync(path, 'utf8');
         const lines = file.split('\n');
-
-        const coordinates = lines.shift().split(' ');
+        const shift = lines.shift();
+        if (!shift) {
+            throw new Error('c murio');
+        }
+        const coordinates = shift.split(' ');
         this.maximumCoordinates = new Coordinate(
             Number(coordinates[0]),
             Number(coordinates[1]),
@@ -27,8 +31,8 @@ export class FileInput {
     }
 
     private formatRobots(lines: string[]): void {
-        const initialRobotValueFormat = /\d \d [W,S,N,E]{1}/;
-        const instructionInput = /[R,L,F]/;
+        const initialRobotValueFormat = /\d \d [WSNE]/;
+        const instructionInput = /[RLF]/;
         let position: Position;
 
         lines.forEach(line => {

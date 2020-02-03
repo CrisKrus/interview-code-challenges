@@ -2,7 +2,7 @@
   "name": "typescript-boilerplate",
   "version": "1.0.0",
   "description": "Basic boilerplate project with Typecript for katas",
-  "main": "main.ts",
+  "main": "src/main.ts",
   "engineStrict": true,
   "engines": {
     "node": ">= 8.9.0"
@@ -23,7 +23,9 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ts-node": "^8.6.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
