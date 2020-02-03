@@ -118,6 +118,16 @@ export class GridService {
 
     private rotateLeft(position: Position) {
         switch (position.orientation.orientation) {
+            case Orientation.NORTH:
+                return new Position(
+                    position.coordinate,
+                    new Orientation(Orientation.WEST),
+                );
+            case Orientation.WEST:
+                return new Position(
+                    position.coordinate,
+                    new Orientation(Orientation.SOUTH),
+                );
             case Orientation.SOUTH:
                 return new Position(
                     new Coordinate(
@@ -125,6 +135,14 @@ export class GridService {
                         position.coordinate.y,
                     ),
                     new Orientation(Orientation.EAST),
+                );
+            case Orientation.EAST:
+                return new Position(
+                    new Coordinate(
+                        position.coordinate.x,
+                        position.coordinate.y,
+                    ),
+                    new Orientation(Orientation.NORTH),
                 );
             default:
                 return new Position(
