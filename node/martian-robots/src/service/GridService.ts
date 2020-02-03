@@ -90,6 +90,11 @@ export class GridService {
                     position.coordinate,
                     new Orientation(Orientation.WEST),
                 );
+            case Orientation.WEST:
+                return new Position(
+                    position.coordinate,
+                    new Orientation(Orientation.NORTH),
+                );
             default:
                 return new Position(
                     position.coordinate,
