@@ -70,10 +70,7 @@ export class GridService {
                 );
             default:
                 return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
+                    position.coordinate,
                     new Orientation(orientation),
                 );
         }
@@ -83,34 +80,22 @@ export class GridService {
         switch (position.orientation.orientation) {
             case Orientation.NORTH:
                 return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
+                    position.coordinate,
                     new Orientation(Orientation.EAST),
                 );
             case Orientation.EAST:
                 return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
+                    position.coordinate,
                     new Orientation(Orientation.SOUTH),
                 );
             case Orientation.SOUTH:
                 return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
+                    position.coordinate,
                     new Orientation(Orientation.WEST),
                 );
             default:
                 return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
+                    position.coordinate,
                     new Orientation(position.orientation.orientation),
                 );
         }
@@ -130,28 +115,16 @@ export class GridService {
                 );
             case Orientation.SOUTH:
                 return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
+                    position.coordinate,
                     new Orientation(Orientation.EAST),
                 );
             case Orientation.EAST:
                 return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
+                    position.coordinate,
                     new Orientation(Orientation.NORTH),
                 );
             default:
-                return new Position(
-                    new Coordinate(
-                        position.coordinate.x,
-                        position.coordinate.y,
-                    ),
-                    new Orientation(position.orientation.orientation),
-                );
+                return new Position(position.coordinate, position.orientation);
         }
     }
 }
