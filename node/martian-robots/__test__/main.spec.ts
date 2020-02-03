@@ -1,4 +1,4 @@
-import { MockInput } from '../src/infrastructure/MockInput';
+import { FileInput } from '../src/infrastructure/FileInput';
 import { Grid, MAX_X, MAX_Y } from '../src/model/Grid';
 import { ConsoleOutput } from '../src/infrastructure/ConsoleOutput';
 import { GridService } from '../src/service/GridService';
@@ -10,8 +10,8 @@ import { Instruction } from '../src/model/Instruction';
 
 describe('Complete test', () => {
     it('should work', () => {
-        const input = new MockInput();
-        input.loadData('');
+        const input = new FileInput();
+        input.loadData('input.txt');
         const coordinates = input.getMaximumCoordinates();
         let grid: Grid;
         try {
@@ -55,4 +55,3 @@ describe('The robot', () => {
         expect(robot);
     });
 });
-
