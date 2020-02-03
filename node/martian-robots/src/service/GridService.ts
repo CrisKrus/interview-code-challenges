@@ -12,7 +12,7 @@ export class GridService {
         this.grid = grid;
     }
 
-    play(robot: Robot): Position[] {
+    launch(robot: Robot): Position[] {
         let position = robot.initialPosition;
         const path: Position[] = [];
         robot.instructions.forEach(instruction => {

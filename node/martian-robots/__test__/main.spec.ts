@@ -22,7 +22,7 @@ describe('Complete test', () => {
         const robots = input.getRobots();
         const gridService = new GridService(grid);
         robots.forEach(robot => {
-            const robotPath = gridService.play(robot);
+            const robotPath = gridService.launch(robot);
             new ConsoleOutput().print(robotPath);
         });
     });
@@ -83,14 +83,14 @@ describe('The grid service', () => {
         );
     }
 
-    it('should play a robot with one instruction', () => {
+    it('should launch a robot with one instruction', () => {
         const robot = getRobotOnZeroZeroFacingNorth([
             new Instruction(Instruction.FORWARD),
         ]);
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const path = gridService.play(robot);
+        const path = gridService.launch(robot);
         const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
@@ -100,7 +100,7 @@ describe('The grid service', () => {
         expect(finalPosition).toEqual(expectedPosition);
     });
 
-    it('should play a robot with multiple instructions', () => {
+    it('should launch a robot with multiple instructions', () => {
         const robot = getRobotOnZeroZeroFacingNorth([
             new Instruction(Instruction.FORWARD),
             new Instruction(Instruction.FORWARD),
@@ -108,7 +108,7 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const path = gridService.play(robot);
+        const path = gridService.launch(robot);
         const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
@@ -118,7 +118,7 @@ describe('The grid service', () => {
         expect(finalPosition).toEqual(expectedPosition);
     });
 
-    it('should play a robot that rotate itself', () => {
+    it('should launch a robot that rotate itself', () => {
         const robot = getRobotOnZeroZeroFacingNorth([
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.RIGHT),
@@ -127,7 +127,7 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const path = gridService.play(robot);
+        const path = gridService.launch(robot);
         const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
@@ -137,7 +137,7 @@ describe('The grid service', () => {
         expect(finalPosition).toEqual(expectedPosition);
     });
 
-    it('should play a robot that moves to the EAST', () => {
+    it('should launch a robot that moves to the EAST', () => {
         const robot = getRobotOnZeroZeroFacingNorth([
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.FORWARD),
@@ -145,7 +145,7 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const path = gridService.play(robot);
+        const path = gridService.launch(robot);
         const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
@@ -155,7 +155,7 @@ describe('The grid service', () => {
         expect(finalPosition).toEqual(expectedPosition);
     });
 
-    it('should play a robot that moves to the SOUTH', () => {
+    it('should launch a robot that moves to the SOUTH', () => {
         const robot = getRobotOnOneOneFacingNorth([
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.RIGHT),
@@ -164,7 +164,7 @@ describe('The grid service', () => {
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
         const gridService = new GridService(grid);
 
-        const path = gridService.play(robot);
+        const path = gridService.launch(robot);
         const finalPosition = path[path.length - 1];
 
         const expectedPosition = new Position(
