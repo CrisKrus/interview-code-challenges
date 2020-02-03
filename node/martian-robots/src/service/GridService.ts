@@ -37,14 +37,16 @@ export class GridService {
     }
 
     private goForward(position: Position): Position {
-        switch (position.orientation.orientation) {
+        const { orientation } = position.orientation;
+
+        switch (orientation) {
             case Orientation.NORTH:
                 return new Position(
                     new Coordinate(
                         position.coordinate.x,
                         position.coordinate.y + 1,
                     ),
-                    new Orientation(position.orientation.orientation),
+                    new Orientation(orientation),
                 );
             case Orientation.EAST:
                 return new Position(
@@ -52,7 +54,7 @@ export class GridService {
                         position.coordinate.x + 1,
                         position.coordinate.y,
                     ),
-                    new Orientation(position.orientation.orientation),
+                    new Orientation(orientation),
                 );
             case Orientation.SOUTH:
                 return new Position(
@@ -60,7 +62,7 @@ export class GridService {
                         position.coordinate.x,
                         position.coordinate.y - 1,
                     ),
-                    new Orientation(position.orientation.orientation),
+                    new Orientation(orientation),
                 );
             default:
                 return new Position(
@@ -68,7 +70,7 @@ export class GridService {
                         position.coordinate.x,
                         position.coordinate.y,
                     ),
-                    new Orientation(position.orientation.orientation),
+                    new Orientation(orientation),
                 );
         }
     }
