@@ -42,7 +42,7 @@ export class GridService {
                         position.coordinate.x,
                         position.coordinate.y + 1,
                     ),
-                    new Orientation(orientation),
+                    position.orientation,
                 );
             case Orientation.EAST:
                 return new Position(
@@ -50,7 +50,7 @@ export class GridService {
                         position.coordinate.x + 1,
                         position.coordinate.y,
                     ),
-                    new Orientation(orientation),
+                    position.orientation,
                 );
             case Orientation.SOUTH:
                 return new Position(
@@ -58,7 +58,7 @@ export class GridService {
                         position.coordinate.x,
                         position.coordinate.y - 1,
                     ),
-                    new Orientation(orientation),
+                    position.orientation,
                 );
             case Orientation.WEST:
                 return new Position(
@@ -66,13 +66,10 @@ export class GridService {
                         position.coordinate.x - 1,
                         position.coordinate.y,
                     ),
-                    new Orientation(orientation),
+                    position.orientation,
                 );
             default:
-                return new Position(
-                    position.coordinate,
-                    new Orientation(orientation),
-                );
+                return new Position(position.coordinate, position.orientation);
         }
     }
 
