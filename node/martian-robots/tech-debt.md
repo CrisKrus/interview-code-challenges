@@ -12,3 +12,8 @@
 - create our own Errors
 - refactor file input, is not clear
 - test input and output logic
+
+# TODO list
+
+- dead on robots
+- check if the instruction kill a robot to ignore it
