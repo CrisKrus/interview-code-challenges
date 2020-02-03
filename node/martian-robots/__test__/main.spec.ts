@@ -187,4 +187,24 @@ describe('The grid service', () => {
         );
         expect(finalPosition).toEqual(expectedPosition);
     });
+
+    it('should launch a robot that rotates to the left side', () => {
+        const robot = getRobotOnOneOneFacingNorth([
+            new Instruction(Instruction.LEFT),
+            new Instruction(Instruction.LEFT),
+            new Instruction(Instruction.LEFT),
+            new Instruction(Instruction.LEFT),
+            new Instruction(Instruction.LEFT),
+        ]);
+        const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
+        const gridService = new GridService(grid);
+
+        const finalPosition = gridService.launch(robot);
+
+        const expectedPosition = new Position(
+            new Coordinate(1, 1),
+            new Orientation(Orientation.WEST),
+        );
+        expect(finalPosition).toEqual(expectedPosition);
+    });
 });
