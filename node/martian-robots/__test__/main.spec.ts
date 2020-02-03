@@ -120,6 +120,8 @@ describe('The grid service', () => {
         const robot = getRobotOnZeroZeroFacingNorth([
             new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.RIGHT),
+            new Instruction(Instruction.RIGHT),
+            new Instruction(Instruction.RIGHT),
             new Instruction(Instruction.LEFT),
         ]);
         const grid = new Grid(new Coordinate(MAX_X, MAX_Y));
@@ -129,7 +131,7 @@ describe('The grid service', () => {
 
         const expectedPosition = new Position(
             new Coordinate(0, 0),
-            new Orientation(Orientation.EAST),
+            new Orientation(Orientation.WEST),
         );
         expect(finalPosition).toEqual(expectedPosition);
     });
