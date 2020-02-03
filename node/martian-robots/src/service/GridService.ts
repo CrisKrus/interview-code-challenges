@@ -64,6 +64,14 @@ export class GridService {
                     ),
                     new Orientation(orientation),
                 );
+            case Orientation.WEST:
+                return new Position(
+                    new Coordinate(
+                        position.coordinate.x - 1,
+                        position.coordinate.y,
+                    ),
+                    new Orientation(orientation),
+                );
             default:
                 return new Position(
                     new Coordinate(
@@ -92,6 +100,14 @@ export class GridService {
                         position.coordinate.y,
                     ),
                     new Orientation(Orientation.SOUTH),
+                );
+            case Orientation.SOUTH:
+                return new Position(
+                    new Coordinate(
+                        position.coordinate.x,
+                        position.coordinate.y,
+                    ),
+                    new Orientation(Orientation.WEST),
                 );
             default:
                 return new Position(
